@@ -287,6 +287,13 @@ a.work-row:hover .work-arrow { transform: translate(6px, -6px); color: var(--acc
 .cred:hover { transform: translateY(-4px); box-shadow: 0 24px 44px -24px rgba(23,20,16,0.22); }
 .cred-name { font-weight: 600; font-size: 16.5px; letter-spacing: -0.01em; }
 
+/* ============ FAQ ============ */
+.faq-list { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 44px; }
+.faq-item { border: 1px solid var(--line); border-radius: var(--radius); padding: 28px; background: var(--card); }
+.faq-item h3 { font-size: 18px; font-weight: 600; letter-spacing: -0.01em; margin-bottom: 12px; }
+.faq-item p { color: var(--muted); font-size: 15.5px; line-height: 1.75; }
+@media (max-width: 760px) { .faq-list { grid-template-columns: 1fr; } }
+
 /* ============ CONTACT ============ */
 .contact { text-align: left; }
 .contact-title { font-size: clamp(44px, 7.5vw, 104px); line-height: 1.02; letter-spacing: -0.035em; font-weight: 700; margin: 10px 0 44px; }
