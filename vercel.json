@@ -1,0 +1,1 @@
+{"redirects":[{"destination":"https://rayyankhan.online/:path*","has":[{"type":"host","value":"www.rayyankhan.online"}],"permanent":true,"source":"/:path*"},{"destination":"https://rayyankhan.online/","has":[{"type":"host","value":"rayyan-protfolio.vercel.app"}],"permanent":true,"source":"/"}]}
