@@ -226,6 +226,15 @@ a.work-row:hover .work-index { color: var(--accent); }
   background: var(--accent-soft); color: var(--accent); border: 1px solid rgba(255,77,0,0.3);
   padding: 4px 10px; border-radius: 100px; vertical-align: middle; margin-left: 10px;
 }
+.work-title .live {
+  font-family: var(--font-mono); font-style: normal; font-size: 11px; letter-spacing: 0.1em;
+  background: rgba(22,163,74,0.1); color: #16a34a; border: 1px solid rgba(22,163,74,0.35);
+  padding: 4px 10px; border-radius: 100px; vertical-align: middle; margin-left: 10px;
+}
+.chat-embed { margin-top: 56px; }
+.chat-embed-label { font-family: var(--font-mono); font-size: 13px; letter-spacing: 0.06em; color: var(--muted); margin-bottom: 18px; }
+.chat-embed iframe { width: 100%; height: 640px; border: 1px solid var(--line); border-radius: 18px; background: #fff; }
+@media (max-width: 640px) { .chat-embed iframe { height: 540px; } }
 .work-desc { color: #454034; font-size: 16px; line-height: 1.65; max-width: 720px; display: block; margin-bottom: 14px; }
 .work-tags { display: flex; flex-wrap: wrap; gap: 8px; }
 .work-tags i {
