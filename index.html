@@ -183,7 +183,7 @@
             <span class="work-index">01</span>
             <span class="work-main">
               <span class="work-title">Lahore Smog Forecast <em class="live">Live</em></span>
-              <span class="work-desc">24-hour PM2.5 forecasting with a 2-layer LSTM — trained on 4 years of hourly Lahore pollution and weather data. Beats persistence by 27% MAE on 15k held-out hours. Try it live below.</span>
+              <span class="work-desc">24-hour PM2.5 forecasting with a 2-layer LSTM — trained on 4 years of hourly Lahore pollution and weather data. Beats persistence by 27% MAE on 15k held-out hours.</span>
               <span class="work-tags"><i>PyTorch</i><i>LSTM</i><i>Streamlit</i></span>
             </span>
             <span class="work-arrow">&nearr;</span>
@@ -192,7 +192,7 @@
             <span class="work-index">02</span>
             <span class="work-main">
               <span class="work-title">Portfolio RAG Chatbot <em class="live">Live</em></span>
-              <span class="work-desc">A chatbot that answers questions about my work and background — portfolio chunks embedded with MiniLM, retrieved with FAISS, answered by an LLM. Try it live below.</span>
+              <span class="work-desc">A chatbot that answers questions about my work and background — portfolio chunks embedded with MiniLM, retrieved with FAISS, answered by an LLM. Tap the avatar in the corner to talk to it.</span>
               <span class="work-tags"><i>Streamlit</i><i>RAG</i><i>FAISS</i><i>OpenRouter</i></span>
             </span>
             <span class="work-arrow">&nearr;</span>
@@ -253,14 +253,6 @@
           </a>
         </div>
 
-        <div class="chat-embed reveal">
-          <p class="chat-embed-label">Try it live — ask about my projects, experience, or skills</p>
-          <iframe src="https://portfolio-rag-chat-5k6zrbaixyywuxah4nykew.streamlit.app/?embed=true" title="Chat with Rayyan Khan's portfolio" loading="lazy"></iframe>
-        </div>
-        <div class="chat-embed reveal">
-          <p class="chat-embed-label">Live demo — Lahore smog forecast, next 24 hours</p>
-          <iframe src="https://lahore-smog-forecast.streamlit.app/?embed=true" title="Lahore Smog Forecast" loading="lazy"></iframe>
-        </div>
       </div>
     </section>
 
@@ -391,5 +383,21 @@
   <script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
   <script src="js/main.js"></script>
   <script type="module" src="js/hero3d.js"></script>
+  <script type="module" src="js/avatar3d.js"></script>
+
+  <!-- ============ CHAT AVATAR ============ -->
+  <div class="ava-widget">
+    <div class="ava-panel" id="avaPanel" hidden>
+      <div class="ava-head">
+        <span class="ava-title">Chat with my portfolio</span>
+        <button class="ava-close" id="avaClose" aria-label="Close chat">&times;</button>
+      </div>
+      <iframe class="ava-frame" id="avaFrame" title="Chat with Rayyan Khan's portfolio"></iframe>
+    </div>
+    <button class="ava-btn" id="avaBtn" aria-label="Open portfolio chatbot">
+      <canvas class="ava-canvas" id="avaCanvas"></canvas>
+      <span class="ava-hint">Ask me</span>
+    </button>
+  </div>
 </body>
 </html>
