@@ -3,17 +3,81 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://rayyankhan.online/</loc>
-    <lastmod>2026-10-14</lastmod>
+    <lastmod>2026-10-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://rayyankhan.online/assets/rayyan-khan-machine-learning-engineer.webp</image:loc>
-      <image:title>Rayyan Khan — Machine Learning Engineer</image:title>
-      <image:caption>Portrait of Rayyan Khan, Machine Learning Engineer from Mardan, Pakistan</image:caption>
+      <image:loc>https://rayyankhan.online/assets/hero_portrait.webp</image:loc>
+      <image:title>Rayyan Khan — AI and Machine Learning Engineer</image:title>
+      <image:caption>Portrait of Rayyan Khan, AI and Machine Learning Engineer from Mardan, Pakistan</image:caption>
     </image:image>
+  </url>
+  <url>
+    <loc>https://rayyankhan.online/about</loc>
+    <lastmod>2026-10-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://rayyankhan.online/projects</loc>
+    <lastmod>2026-10-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://rayyankhan.online/experience</loc>
+    <lastmod>2026-10-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://rayyankhan.online/projects/ask-the-constitution</loc>
+    <lastmod>2026-10-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
     <image:image>
-      <image:loc>https://rayyankhan.online/assets/og-image.webp</image:loc>
-      <image:title>Rayyan Khan — Machine Learning Engineer</image:title>
+      <image:loc>https://rayyankhan.online/covers/constitution.webp</image:loc>
+      <image:title>Ask the Constitution — Rayyan Khan</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://rayyankhan.online/projects/cottondoctor-pk</loc>
+    <lastmod>2026-10-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rayyankhan.online/covers/cotton.webp</image:loc>
+      <image:title>CottonDoctor-PK — Rayyan Khan</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://rayyankhan.online/projects/lahore-smog-forecast</loc>
+    <lastmod>2026-10-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rayyankhan.online/covers/smog.webp</image:loc>
+      <image:title>Lahore Smog Forecast — Rayyan Khan</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://rayyankhan.online/projects/portfolio-rag-chatbot</loc>
+    <lastmod>2026-10-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rayyankhan.online/covers/card-rag.webp</image:loc>
+      <image:title>Portfolio RAG Chatbot — Rayyan Khan</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://rayyankhan.online/projects/rozgarmatch</loc>
+    <lastmod>2026-10-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://rayyankhan.online/covers/card-rozgar.webp</image:loc>
+      <image:title>RozgarMatch — Rayyan Khan</image:title>
     </image:image>
   </url>
 </urlset>

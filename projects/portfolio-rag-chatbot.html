@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Portfolio RAG Chatbot | Rayyan Khan — Ask My Portfolio Anything</title>
+  <meta name="description" content="A retrieval-augmented chatbot by Rayyan Khan that answers questions about his work using MiniLM embeddings, FAISS search and an OpenRouter LLM.">
+  <link rel="canonical" href="https://rayyankhan.online/projects/portfolio-rag-chatbot">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="Rayyan Khan">
+  <meta name="theme-color" content="#FAFAFA">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://rayyankhan.online/projects/portfolio-rag-chatbot">
+  <meta property="og:title" content="Portfolio RAG Chatbot | Rayyan Khan — Ask My Portfolio Anything">
+  <meta property="og:description" content="A retrieval-augmented chatbot by Rayyan Khan that answers questions about his work using MiniLM embeddings, FAISS search and an OpenRouter LLM.">
+  <meta property="og:image" content="https://rayyankhan.online/covers/card-rag.webp">
+  <meta property="og:site_name" content="Rayyan Khan — Portfolio">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Portfolio RAG Chatbot | Rayyan Khan — Ask My Portfolio Anything">
+  <meta name="twitter:description" content="A retrieval-augmented chatbot by Rayyan Khan that answers questions about his work using MiniLM embeddings, FAISS search and an OpenRouter LLM.">
+  <meta name="twitter:image" content="https://rayyankhan.online/covers/card-rag.webp">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://rayyankhan.online/projects/portfolio-rag-chatbot#webpage",
+      "url": "https://rayyankhan.online/projects/portfolio-rag-chatbot",
+      "name": "Portfolio RAG Chatbot | Rayyan Khan — Ask My Portfolio Anything",
+      "isPartOf": {
+        "@id": "https://rayyankhan.online/#website"
+      },
+      "about": {
+        "@id": "https://rayyankhan.online/#person"
+      },
+      "inLanguage": "en"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://rayyankhan.online/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Projects",
+          "item": "https://rayyankhan.online/projects"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Portfolio RAG Chatbot",
+          "item": "https://rayyankhan.online/"
+        }
+      ]
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "Portfolio RAG Chatbot",
+      "description": "A retrieval-augmented chatbot by Rayyan Khan that answers questions about his work using MiniLM embeddings, FAISS search and an OpenRouter LLM.",
+      "author": {
+        "@id": "https://rayyankhan.online/#person"
+      },
+      "url": "https://rayyankhan.online/projects/portfolio-rag-chatbot",
+      "image": "https://rayyankhan.online/covers/card-rag.webp",
+      "keywords": "Python, MiniLM, FAISS, OpenRouter, Streamlit, RAG"
+    }
+  ]
+}
+  </script>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Plus+Jakarta+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: "Plus Jakarta Sans", system-ui, sans-serif; }
+    .display { font-family: "Anton", "Plus Jakarta Sans", sans-serif; letter-spacing: 0.01em; }
+  </style>
+</head>
+<body class="bg-[#FAFAFA] text-neutral-900 antialiased">
+  <header class="w-full max-w-[1400px] mx-auto px-6 md:px-14 pt-6 pb-4 flex items-center justify-between">
+    <a href="/" class="text-sm font-black tracking-widest uppercase">Rayyan Khan</a>
+    <nav aria-label="Main" class="flex items-center gap-1 p-1 bg-white border border-[#E2E2E2] rounded-full shadow-sm text-[11px] font-semibold tracking-wider text-neutral-600">
+      <a class="px-3.5 py-1.5 rounded-full hover:bg-neutral-100 hover:text-black transition" href="/">Home</a>
+      <a class="px-3.5 py-1.5 rounded-full hover:bg-neutral-100 hover:text-black transition" href="/about">About</a>
+      <a class="px-3.5 py-1.5 rounded-full hover:bg-neutral-100 hover:text-black transition" href="/projects">Projects</a>
+      <a class="px-3.5 py-1.5 rounded-full hover:bg-neutral-100 hover:text-black transition" href="/experience">Experience</a>
+      <a class="px-3.5 py-1.5 rounded-full bg-black text-white hover:bg-neutral-800 transition" href="https://rayyankhan.online/#contact">Contact</a>
+    </nav>
+  </header>
+  <main class="w-full max-w-[1100px] mx-auto px-6 md:px-10 pt-8 md:pt-12 pb-4">
+    <nav aria-label="Breadcrumb" class="flex flex-wrap items-center gap-2 text-[11px] font-bold tracking-widest uppercase text-neutral-400 mb-10"><a class="hover:text-black" href="/">Home</a>
+          <span aria-hidden="true" class="text-neutral-300">/</span>
+          <a class="hover:text-black" href="/projects">Projects</a>
+          <span aria-hidden="true" class="text-neutral-300">/</span>
+          <span class="text-black font-semibold" aria-current="page">Portfolio RAG Chatbot</span></nav>
+    <p class="text-[11px] font-bold tracking-[0.3em] uppercase text-neutral-400 mb-4">Featured Project — LLM Application</p>
+    <h1 class="display text-5xl md:text-7xl uppercase leading-[0.95] mb-6">Portfolio RAG Chatbot</h1>
+    <p class="text-base md:text-lg text-neutral-600 leading-relaxed max-w-3xl mb-12">A chatbot that answers questions about my work — projects, skills, experience — grounded in a curated knowledge base of my portfolio instead of a language model’s imagination.</p>
+    <img src="/covers/card-rag.webp" width="1280" height="853" alt="Typographic cover card for the Portfolio RAG Chatbot by Rayyan Khan" class="w-full rounded-3xl border border-neutral-200 mb-12">
+    <section class="mb-12">
+      <h2 class="text-xl md:text-2xl font-black uppercase tracking-tight mb-4">The Problem</h2>
+      <p class="text-neutral-600 leading-relaxed mb-4">Recruiters and clients ask the same questions repeatedly: What has he built? Which models? Is he available? A static page makes them hunt; a grounded chatbot answers in seconds — and because it retrieves from my actual portfolio content, it does not invent projects or skills I do not have.</p>
+    </section>
+    <section class="mb-12">
+      <h2 class="text-xl md:text-2xl font-black uppercase tracking-tight mb-4">What I Built</h2>
+      <ul class="list-disc pl-5 space-y-2 text-neutral-600 leading-relaxed">
+        <li>A retrieval pipeline over a hand-maintained knowledge base describing every project, role and skill.</li>
+        <li>Retrieval tuned per project: one strong chunk per project plus header-keyword boosting, so questions land on the right project instead of a blend of three.</li>
+        <li>A chat interface served as a public Streamlit app.</li>
+      </ul>
+    </section>
+    <section class="mb-12">
+      <h2 class="text-xl md:text-2xl font-black uppercase tracking-tight mb-4">Technical Approach</h2>
+      <ul class="list-disc pl-5 space-y-2 text-neutral-600 leading-relaxed">
+        <li>Embeddings: MiniLM sentence embeddings; index: FAISS.</li>
+        <li>Generation: an OpenRouter-hosted LLM prompted with the retrieved passages and instructed to answer only from them.</li>
+        <li>Iteration: free-tier models were tested and rejected when they leaked chain-of-thought or failed; the current model was selected for clean, grounded answers.</li>
+      </ul>
+    </section>
+    <section class="mb-12">
+      <h2 class="text-xl md:text-2xl font-black uppercase tracking-tight mb-4">Technologies & Stack</h2>
+      <div class="flex flex-wrap gap-2">
+        <span class="px-3 py-1 bg-neutral-100 border border-neutral-200 text-neutral-800 text-[11px] font-semibold rounded-full uppercase">Python</span>
+        <span class="px-3 py-1 bg-neutral-100 border border-neutral-200 text-neutral-800 text-[11px] font-semibold rounded-full uppercase">MiniLM</span>
+        <span class="px-3 py-1 bg-neutral-100 border border-neutral-200 text-neutral-800 text-[11px] font-semibold rounded-full uppercase">FAISS</span>
+        <span class="px-3 py-1 bg-neutral-100 border border-neutral-200 text-neutral-800 text-[11px] font-semibold rounded-full uppercase">OpenRouter</span>
+        <span class="px-3 py-1 bg-neutral-100 border border-neutral-200 text-neutral-800 text-[11px] font-semibold rounded-full uppercase">Streamlit</span>
+        <span class="px-3 py-1 bg-neutral-100 border border-neutral-200 text-neutral-800 text-[11px] font-semibold rounded-full uppercase">RAG</span>
+      </div>
+    </section>
+    <section class="mb-12">
+      <h2 class="text-xl md:text-2xl font-black uppercase tracking-tight mb-4">Results</h2>
+      <p class="text-neutral-600 leading-relaxed mb-4">Live and public — ask it about any project on this site and it answers from the same facts, with the project it drew from.</p>
+    </section>
+    <section class="mb-12">
+      <h2 class="text-xl md:text-2xl font-black uppercase tracking-tight mb-4">Limitations</h2>
+      <p class="text-neutral-600 leading-relaxed mb-4">The knowledge base is updated manually, so brand-new work appears only after an update. Free LLM tiers can occasionally rate-limit under load.</p>
+    </section>
+    <div class="flex flex-wrap gap-3 my-8"><a class="px-7 py-3 rounded-full bg-black text-white text-xs font-bold tracking-wider uppercase hover:bg-neutral-800 transition" href="https://portfolio-rag-chat-5k6zrbaixyywuxah4nykew.streamlit.app" target="_blank" rel="noopener">Visit Live Demo</a><a class="px-7 py-3 rounded-full border border-neutral-900 text-xs font-bold tracking-wider uppercase hover:bg-neutral-100 transition" href="https://github.com/rayyan4t4/portfolio-rag-chat" target="_blank" rel="noopener">Source Code</a></div>
+    <nav aria-label="More projects" class="border-t border-neutral-200 pt-8 mt-4">
+      <p class="text-[11px] font-bold tracking-[0.3em] uppercase text-neutral-400 mb-4">More Projects</p>
+      <div class="flex flex-wrap gap-x-6 gap-y-2 text-sm font-semibold">
+          <a class="text-neutral-500 hover:text-black underline underline-offset-4" href="/projects/ask-the-constitution">Ask the Constitution</a>
+          <a class="text-neutral-500 hover:text-black underline underline-offset-4" href="/projects/cottondoctor-pk">CottonDoctor-PK</a>
+          <a class="text-neutral-500 hover:text-black underline underline-offset-4" href="/projects/lahore-smog-forecast">Lahore Smog Forecast</a>
+          <a class="text-neutral-500 hover:text-black underline underline-offset-4" href="/projects/rozgarmatch">RozgarMatch</a>
+      </div>
+      <p class="mt-6 text-sm"><a class="underline underline-offset-4 font-semibold" href="/projects">View all projects by Rayyan Khan</a></p>
+    </nav>
+  </main>
+  <footer class="w-full bg-[#0D0D0D] text-white pt-16 pb-10 mt-20">
+    <div class="max-w-[1400px] mx-auto px-6 md:px-14 flex flex-col items-center">
+      <p class="display text-5xl md:text-7xl uppercase leading-none text-center">Let&rsquo;s Talk</p>
+      <div class="flex flex-wrap items-center justify-center gap-3.5 mt-8 mb-12">
+        <a class="px-6 py-2.5 rounded-full border border-neutral-700 hover:border-neutral-400 text-xs font-medium tracking-wider uppercase transition text-neutral-300 hover:text-white" href="https://www.linkedin.com/in/rayyanstein" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="px-6 py-2.5 rounded-full border border-neutral-700 hover:border-neutral-400 text-xs font-medium tracking-wider uppercase transition text-neutral-300 hover:text-white" href="https://github.com/rayyan4t4" target="_blank" rel="noopener">GitHub</a>
+        <a class="px-6 py-2.5 rounded-full border border-neutral-700 hover:border-neutral-400 text-xs font-medium tracking-wider uppercase transition text-neutral-300 hover:text-white" href="https://www.instagram.com/rayyankhan.ai" target="_blank" rel="noopener">Instagram</a>
+        <a class="px-6 py-2.5 rounded-full border border-neutral-700 hover:border-neutral-400 text-xs font-medium tracking-wider uppercase transition text-neutral-300 hover:text-white" href="mailto:rayanuet@gmail.com">Email</a>
+      </div>
+      <nav aria-label="Explore" class="w-full mb-10">
+        <div class="flex flex-wrap items-center justify-center gap-x-7 gap-y-3 text-[11px] font-semibold tracking-wider uppercase">
+          <a class="text-neutral-400 hover:text-white transition" href="/about">About</a>
+          <a class="text-neutral-400 hover:text-white transition" href="/projects">Projects</a>
+          <a class="text-neutral-400 hover:text-white transition" href="/experience">Experience</a>
+          <a class="text-neutral-400 hover:text-white transition" href="/projects/ask-the-constitution">Ask the Constitution</a>
+          <a class="text-neutral-400 hover:text-white transition" href="/projects/cottondoctor-pk">CottonDoctor-PK</a>
+          <a class="text-neutral-400 hover:text-white transition" href="/projects/lahore-smog-forecast">Lahore Smog Forecast</a>
+          <a class="text-neutral-400 hover:text-white transition" href="/projects/portfolio-rag-chatbot">Portfolio RAG Chatbot</a>
+          <a class="text-neutral-400 hover:text-white transition" href="/projects/rozgarmatch">RozgarMatch</a>
+        </div>
+      </nav>
+      <div class="w-full pt-8 border-t border-neutral-900 flex flex-col md:flex-row items-center justify-between text-[10px] tracking-widest uppercase text-neutral-600 font-semibold gap-4">
+        <div>&copy; 2026 Rayyan Khan</div>
+        <div>AI &amp; Machine Learning Engineer — Mardan, Pakistan</div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
