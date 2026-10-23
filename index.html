@@ -207,7 +207,7 @@
 <body class="antialiased text-[#111] bg-[#FAFAFA]">
 
   <!-- Notification Toast Container -->
-  <div id="toast-container" class="fixed bottom-6 right-6 z-50 flex flex-col gap-2 pointer-events-none"></div>
+  <div id="toast-container" role="status" aria-live="polite" class="fixed bottom-6 right-6 z-50 flex flex-col gap-2 pointer-events-none"></div>
 
   <!-- BEGIN: Navigation Header -->
   <header class="relative z-40 bg-[#FAFAFA] transition-all duration-300 w-full pt-6 pb-4 px-6 md:px-14 max-w-[1400px] mx-auto flex items-center justify-between" data-purpose="site-navigation">
@@ -255,12 +255,12 @@
   </header>
 
   <!-- Mobile Drawer Menu -->
-  <div id="mobile-drawer" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 flex justify-end">
+  <div id="mobile-drawer" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm opacity-0 pointer-events-none invisible transition-opacity duration-300 flex justify-end">
     <div id="mobile-drawer-content" class="w-4/5 max-w-sm bg-white h-full p-8 flex flex-col justify-between transform translate-x-full transition-transform duration-300 shadow-2xl">
       <div>
         <div class="flex items-center justify-between pb-6 border-b border-neutral-200">
           <span class="font-extrabold text-lg tracking-tight">RAY•</span>
-          <button onclick="toggleMobileMenu()" class="w-8 h-8 rounded-full border border-neutral-300 flex items-center justify-center text-neutral-700 hover:border-black">
+          <button onclick="toggleMobileMenu()" aria-label="Close Menu" class="w-8 h-8 rounded-full border border-neutral-300 flex items-center justify-center text-neutral-700 hover:border-black">
             ✕
           </button>
         </div>
@@ -271,7 +271,7 @@
           <a onclick="toggleMobileMenu()" href="#projects" class="py-2 border-b border-neutral-100 hover:text-neutral-500">PROJECTS</a>
           <a onclick="toggleMobileMenu()" href="#landing-pages" class="py-2 border-b border-neutral-100 hover:text-neutral-500">MORE BUILDS</a>
           <a onclick="toggleMobileMenu()" href="#services" class="py-2 border-b border-neutral-100 hover:text-neutral-500">SERVICES</a>
-          <a onclick="toggleMobileMenu(); openContactModal();" href="javascript:void(0)" class="py-2 text-black hover:underline">CONTACT</a>
+          <button type="button" onclick="toggleMobileMenu(); openContactModal();" class="py-2 text-black hover:underline text-left">CONTACT</button>
         </nav>
       </div>
       <div class="pt-6 border-t border-neutral-200">
@@ -422,12 +422,12 @@
 
                   <!-- Monochrome Action Buttons -->
                   <div class="flex items-center gap-3 shrink-0 pt-1 md:pt-0">
-                    <a href="javascript:void(0)" onclick="openContactModal()" class="pointer-events-auto px-5 py-2.5 rounded-full bg-white text-black hover:bg-neutral-200 text-xs font-bold tracking-wider uppercase transition-all duration-200 inline-flex items-center gap-2">
+                    <button type="button" onclick="openContactModal()" class="pointer-events-auto px-5 py-2.5 rounded-full bg-white text-black hover:bg-neutral-200 text-xs font-bold tracking-wider uppercase transition-all duration-200 inline-flex items-center gap-2">
                       <span>GET IN TOUCH</span>
                       <svg class="w-3.5 h-3.5 text-black" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                         <path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linecap="round" stroke-linejoin="round"></path>
                       </svg>
-                    </a>
+                    </button>
                     <a href="#services" class="pointer-events-auto px-5 py-2.5 rounded-full border border-neutral-500 hover:border-white text-white text-xs font-bold tracking-wider uppercase transition-all duration-200">
                       SERVICES
                     </a>
@@ -785,7 +785,7 @@
       
       <!-- Metallic Callout Headline -->
       <div class="w-full text-center py-6 md:py-10">
-        <h2 class="text-[12vw] md:text-[8rem] lg:text-[10rem] font-black uppercase leading-none tracking-tight footer-metallic-title select-none cursor-pointer" onclick="openContactModal()">
+        <h2 class="text-[12vw] md:text-[8rem] lg:text-[10rem] font-black uppercase leading-none tracking-tight footer-metallic-title select-none">
           LET'S TALK
         </h2>
       </div>
@@ -820,7 +820,7 @@
   <!-- END: Contact / Let's Talk Footer -->
 
   <!-- MODAL: Project Detail Modal -->
-  <div id="project-modal" onclick="if(event.target === this) closeProjectModal()" class="fixed inset-0 z-50 bg-black/75 backdrop-blur-md opacity-0 pointer-events-none flex items-center justify-center p-4">
+  <div id="project-modal" onclick="if(event.target === this) closeProjectModal()" class="fixed inset-0 z-50 bg-black/75 backdrop-blur-md opacity-0 pointer-events-none invisible flex items-center justify-center p-4">
     <div id="project-modal-card" class="bg-white rounded-[32px] max-w-2xl w-full max-h-[90vh] overflow-y-auto no-scrollbar p-6 sm:p-8 md:p-9 shadow-2xl border border-neutral-100 opacity-0 scale-[0.94] translate-y-4 relative">
       <div class="relative text-center pb-4 mb-5 border-b border-neutral-100">
         <span id="modal-project-category" class="block text-[11px] font-bold tracking-widest uppercase text-neutral-400 mb-1">CATEGORY</span>
@@ -834,27 +834,27 @@
   </div>
 
   <!-- MODAL: Contact Form Modal -->
-  <div id="contact-modal" class="fixed inset-0 z-50 bg-black/75 backdrop-blur-md opacity-0 pointer-events-none transition-opacity duration-300 flex items-center justify-center p-4">
+  <div id="contact-modal" class="fixed inset-0 z-50 bg-black/75 backdrop-blur-md opacity-0 pointer-events-none invisible transition-opacity duration-300 flex items-center justify-center p-4">
     <div id="contact-modal-card" class="bg-white rounded-3xl max-w-lg w-full p-6 md:p-8 shadow-2xl transform scale-95 transition-transform duration-300">
       <div class="flex justify-between items-center border-b border-neutral-200 pb-4 mb-6">
         <div>
           <span class="text-[10px] font-bold tracking-widest uppercase text-neutral-400">START A CONVERSATION</span>
           <h3 class="text-xl font-black uppercase text-neutral-900">LET'S BUILD SOMETHING</h3>
         </div>
-        <button onclick="closeContactModal()" class="w-8 h-8 rounded-full border border-neutral-300 flex items-center justify-center text-neutral-600 hover:border-black hover:text-black">✕</button>
+        <button onclick="closeContactModal()" aria-label="Close contact form" class="w-8 h-8 rounded-full border border-neutral-300 flex items-center justify-center text-neutral-600 hover:border-black hover:text-black">✕</button>
       </div>
       
       <form id="contact-form" onsubmit="submitContactForm(event)" class="space-y-4">
         <div>
-          <label class="block text-xs font-bold uppercase tracking-wider text-neutral-700 mb-1">Your Name</label>
+          <label for="contact-name" class="block text-xs font-bold uppercase tracking-wider text-neutral-700 mb-1">Your Name</label>
           <input type="text" id="contact-name" required placeholder="John Doe" class="w-full px-4 py-2.5 rounded-xl border border-neutral-300 focus:outline-none focus:border-black text-sm">
         </div>
         <div>
-          <label class="block text-xs font-bold uppercase tracking-wider text-neutral-700 mb-1">Email Address</label>
+          <label for="contact-email" class="block text-xs font-bold uppercase tracking-wider text-neutral-700 mb-1">Email Address</label>
           <input type="email" id="contact-email" required placeholder="john@company.com" class="w-full px-4 py-2.5 rounded-xl border border-neutral-300 focus:outline-none focus:border-black text-sm">
         </div>
         <div>
-          <label class="block text-xs font-bold uppercase tracking-wider text-neutral-700 mb-1">Service Required</label>
+          <label for="contact-service" class="block text-xs font-bold uppercase tracking-wider text-neutral-700 mb-1">Service Required</label>
           <select id="contact-service" class="w-full px-4 py-2.5 rounded-xl border border-neutral-300 focus:outline-none focus:border-black text-sm bg-white">
             <option value="AI Product Development">AI Product Development</option>
             <option value="Machine Learning">Machine Learning</option>
@@ -864,7 +864,7 @@
           </select>
         </div>
         <div>
-          <label class="block text-xs font-bold uppercase tracking-wider text-neutral-700 mb-1">Message</label>
+          <label for="contact-message" class="block text-xs font-bold uppercase tracking-wider text-neutral-700 mb-1">Message</label>
           <textarea id="contact-message" rows="3" required placeholder="Tell me about your project, goals, and timeline..." class="w-full px-4 py-2 rounded-xl border border-neutral-300 focus:outline-none focus:border-black text-sm"></textarea>
         </div>
         <button type="submit" class="w-full py-3 bg-black text-white rounded-xl text-xs font-bold tracking-widest uppercase hover:bg-neutral-800 transition">
@@ -874,32 +874,10 @@
     </div>
   </div>
 
-  <!-- MODAL: Cart Drawer / Modal -->
-  <div id="cart-modal" class="fixed inset-0 z-50 bg-black/75 backdrop-blur-md opacity-0 pointer-events-none transition-opacity duration-300 flex items-center justify-center p-4">
-    <div id="cart-modal-card" class="bg-white rounded-3xl max-w-md w-full p-6 md:p-8 shadow-2xl transform scale-95 transition-transform duration-300">
-      <div class="flex justify-between items-center border-b border-neutral-200 pb-4 mb-4">
-        <h3 class="text-lg font-black uppercase text-neutral-900">SHOPPING BAG</h3>
-        <button onclick="closeCartModal()" class="w-8 h-8 rounded-full border border-neutral-300 flex items-center justify-center text-neutral-600 hover:border-black hover:text-black">✕</button>
-      </div>
-      <div id="cart-items" class="py-4 space-y-3 min-h-[120px] max-h-[300px] overflow-y-auto">
-        <p class="text-xs text-neutral-400 text-center py-8">Your bag is empty.</p>
-      </div>
-      <div class="border-t border-neutral-200 pt-4 mt-2">
-        <div class="flex justify-between items-center font-bold text-sm mb-4">
-          <span>SUBTOTAL</span>
-          <span id="cart-total">$0.00</span>
-        </div>
-        <button onclick="checkoutCart()" class="w-full py-3 bg-black text-white rounded-xl text-xs font-bold tracking-widest uppercase hover:bg-neutral-800 transition">
-          PROCEED TO CHECKOUT
-        </button>
-      </div>
-    </div>
-  </div>
+  
 
   <!-- JAVASCRIPT: Comprehensive Interactivity -->
   <script>
-    // Cart state
-    let cart = [];
 
     // Project data details
     const projectsData = {
@@ -1067,7 +1045,7 @@
       modal.classList.remove('pointer-events-none');
       void modal.offsetWidth; // Force reflow so transition starts cleanly
       requestAnimationFrame(() => {
-        modal.classList.remove('opacity-0');
+        modal.classList.remove('opacity-0', 'invisible');
         card.classList.remove('opacity-0', 'scale-[0.94]', 'translate-y-4');
         card.classList.add('opacity-100', 'scale-100', 'translate-y-0');
       });
@@ -1084,7 +1062,7 @@
       card.classList.add('opacity-0', 'scale-[0.94]', 'translate-y-4');
       setTimeout(() => {
         if (modal.classList.contains('opacity-0')) {
-          modal.classList.add('pointer-events-none');
+          modal.classList.add('pointer-events-none', 'invisible');
         }
       }, 400);
     }
@@ -1092,7 +1070,7 @@
     function openContactModal() {
       const modal = document.getElementById('contact-modal');
       const card = document.getElementById('contact-modal-card');
-      modal.classList.remove('opacity-0', 'pointer-events-none');
+      modal.classList.remove('opacity-0', 'pointer-events-none', 'invisible');
       card.classList.remove('scale-95');
       card.classList.add('scale-100');
     }
@@ -1100,7 +1078,7 @@
     function closeContactModal() {
       const modal = document.getElementById('contact-modal');
       const card = document.getElementById('contact-modal-card');
-      modal.classList.add('opacity-0', 'pointer-events-none');
+      modal.classList.add('opacity-0', 'pointer-events-none', 'invisible');
       card.classList.remove('scale-100');
       card.classList.add('scale-95');
     }
@@ -1123,108 +1101,9 @@
       document.getElementById('contact-form').reset();
     }
 
-    // Cart Handlers
-    function addToCart(title, price) {
-      cart.push({ title, price, id: Date.now() });
-      updateCartUI();
-      showToast(`Added ${title} ($${price.toFixed(2)}) to your bag.`);
-    }
 
-    function updateCartUI() {
-      const badge = document.getElementById('cart-badge');
-      if (cart.length > 0) {
-        badge.innerText = cart.length;
-        badge.classList.remove('hidden');
-      } else {
-        badge.classList.add('hidden');
-      }
 
-      const list = document.getElementById('cart-items');
-      const totalEl = document.getElementById('cart-total');
-      if (cart.length === 0) {
-        list.innerHTML = `<p class="text-xs text-neutral-400 text-center py-8">Your bag is empty.</p>`;
-        totalEl.innerText = '$0.00';
-      } else {
-        let total = 0;
-        list.innerHTML = cart.map((item, idx) => {
-          total += item.price;
-          return `
-            <div class="flex items-center justify-between p-3 bg-neutral-50 rounded-xl border border-neutral-200">
-              <div>
-                <p class="text-xs font-bold text-black uppercase">${item.title}</p>
-                <p class="text-xs text-neutral-500 font-mono">$${item.price.toFixed(2)}</p>
-              </div>
-              <button onclick="removeFromCart(${idx})" class="text-xs text-red-500 hover:underline">Remove</button>
-            </div>
-          `;
-        }).join('');
-        totalEl.innerText = `$${total.toFixed(2)}`;
-      }
-    }
 
-    function removeFromCart(idx) {
-      cart.splice(idx, 1);
-      updateCartUI();
-    }
-
-    function openCartModal() {
-      updateCartUI();
-      const modal = document.getElementById('cart-modal');
-      const card = document.getElementById('cart-modal-card');
-      modal.classList.remove('opacity-0', 'pointer-events-none');
-      card.classList.remove('scale-95');
-      card.classList.add('scale-100');
-    }
-
-    function closeCartModal() {
-      const modal = document.getElementById('cart-modal');
-      const card = document.getElementById('cart-modal-card');
-      modal.classList.add('opacity-0', 'pointer-events-none');
-      card.classList.remove('scale-100');
-      card.classList.add('scale-95');
-    }
-
-    function checkoutCart() {
-      if (cart.length === 0) {
-        showToast('Your bag is currently empty.');
-        return;
-      }
-      closeCartModal();
-      showToast('Redirecting to secure checkout...');
-      setTimeout(() => {
-        cart = [];
-        updateCartUI();
-        showToast('Order confirmed! Thank you for supporting designer craftsmanship.');
-      }, 1000);
-    }
-
-    // Interactive micro-interactions
-    function toggleHeart(btn) {
-      if (btn.innerText === '♡') {
-        btn.innerText = '♥';
-        btn.classList.add('text-red-500');
-        btn.classList.remove('text-neutral-400');
-        showToast('Added Wood Chair to saved items.');
-      } else {
-        btn.innerText = '♡';
-        btn.classList.remove('text-red-500');
-        btn.classList.add('text-neutral-400');
-      }
-    }
-
-    function triggerSolarAction() {
-      const kwh = document.getElementById('solar-kwh');
-      if (kwh) {
-        kwh.innerText = (parseFloat(kwh.innerText) + 0.8).toFixed(1) + ' kWh';
-      }
-      showToast('Live solar telemetry synchronized (+0.8 kWh).');
-    }
-
-    function copyContactEmail() {
-      const email = 'hello@example.com';
-      navigator.clipboard?.writeText(email);
-      showToast('Copied email: hello@example.com');
-    }
 
     function toggleMobileMenu() {
       const drawer = document.getElementById('mobile-drawer');
@@ -1232,10 +1111,10 @@
       const isOpen = !drawer.classList.contains('pointer-events-none');
 
       if (isOpen) {
-        drawer.classList.add('opacity-0', 'pointer-events-none');
+        drawer.classList.add('opacity-0', 'pointer-events-none', 'invisible');
         content.classList.add('translate-x-full');
       } else {
-        drawer.classList.remove('opacity-0', 'pointer-events-none');
+        drawer.classList.remove('opacity-0', 'pointer-events-none', 'invisible');
         content.classList.remove('translate-x-full');
       }
     }
