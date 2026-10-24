@@ -270,7 +270,7 @@ export function initFlexCarousel(container, options = {}) {
     focusOnClick: options.focusOnClick !== undefined ? options.focusOnClick : true,
     autoplay: options.autoplay !== undefined ? options.autoplay : false,
     interval: options.interval || 4,
-    captureWheel: options.captureWheel !== undefined ? options.captureWheel : true,
+    captureWheel: options.captureWheel !== undefined ? options.captureWheel : false,
     captions: options.captions !== undefined ? options.captions : true
   };
 

@@ -218,7 +218,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="FlexCarousel.css">
+  <link rel="stylesheet" href="FlexCarousel.css?v=20261024">
   <style>
     body {
       font-family: 'Plus Jakarta Sans', sans-serif;
@@ -356,6 +356,27 @@
       -webkit-mask-image: linear-gradient(to bottom, black 65%, transparent 100%);
     }
 
+    /* Hero entrance: text rises, portrait scrolls up into place on load/reload */
+    @keyframes hero-rise {
+      from { opacity: 0; transform: translateY(54px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes hero-pic-rise {
+      from { opacity: 0; transform: translateY(130px) scale(1.04); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    .hero-anim {
+      animation: hero-rise 1s cubic-bezier(0.22, 1, 0.36, 1) both;
+      animation-delay: var(--hd, 0s);
+    }
+    .hero-pic-anim {
+      animation: hero-pic-rise 1.3s cubic-bezier(0.22, 1, 0.36, 1) both;
+      animation-delay: var(--hd, 0.3s);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .hero-anim, .hero-pic-anim { animation: none; }
+    }
+
     /* Accordion transition styles */
     .accordion-content {
       max-height: 0;
@@ -463,10 +484,10 @@
     <!-- Big Title Header -->
     <div class="text-center w-full mb-6 md:mb-10 relative z-0 select-none">
       <h1 id="hero-title" class="text-[9.5vw] md:text-[8rem] lg:text-[9.5rem] font-extrabold uppercase leading-[0.85] tracking-tight">
-        <span class="block">
+        <span class="block hero-anim" style="--hd:.05s">
           <span class="text-[#121212]">RAYYAN KHAN</span>
         </span>
-        <span class="block">
+        <span class="block hero-anim" style="--hd:.18s">
           <span class="metallic-title">PORTFOLIO</span>
         </span>
       </h1>
@@ -476,7 +497,7 @@
     <div class="relative grid grid-cols-1 md:grid-cols-12 items-center mt-2 md:-mt-6">
       
       <!-- Left Column: Designer info & Arrow -->
-      <div class="md:col-span-3 flex flex-col items-start md:items-start pl-2 md:pl-6 order-2 md:order-1 pt-6 md:pt-0">
+      <div class="md:col-span-3 flex flex-col items-start md:items-start pl-2 md:pl-6 order-2 md:order-1 pt-6 md:pt-0 hero-anim" style="--hd:.55s">
         <span class="text-xs font-bold tracking-wider uppercase text-neutral-800 mb-6">AI/ML ENGINEER — EST. 2023</span>
         <a class="circle-btn w-14 h-14 md:w-16 md:h-16 border-neutral-300" href="#about" aria-label="Scroll to About Section">
           <svg class="w-5 h-5 text-neutral-800 transform rotate-45" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
@@ -486,7 +507,7 @@
       </div>
 
       <!-- Center Column: Stylized Black and White Headshot (in front of text) -->
-      <div class="md:col-span-6 flex justify-center order-1 md:order-2 relative z-10 -mt-16 md:-mt-36">
+      <div class="md:col-span-6 flex justify-center order-1 md:order-2 relative z-10 -mt-16 md:-mt-36 hero-pic-anim" style="--hd:.3s">
         <div class="relative w-[320px] h-[400px] md:w-[480px] md:h-[580px] flex items-end justify-center hero-portrait-mask">
           <img src="assets/hero_portrait.webp" width="1045" height="1479" fetchpriority="high" decoding="async"
                alt="Portrait of Rayyan Khan, AI and Machine Learning Engineer from Mardan, Pakistan"
@@ -495,7 +516,7 @@
       </div>
 
       <!-- Right Column: Pitch and Disciplines -->
-      <div class="md:col-span-3 flex flex-col items-start md:items-end text-left order-3 pt-6 md:pt-0 pr-2 md:pr-6 space-y-10">
+      <div class="md:col-span-3 flex flex-col items-start md:items-end text-left order-3 pt-6 md:pt-0 pr-2 md:pr-6 space-y-10 hero-anim" style="--hd:.68s">
         <!-- Pitch Quote -->
         <p class="text-[11px] md:text-xs uppercase font-medium leading-relaxed tracking-wider text-neutral-700 max-w-[220px] text-left">
           I BUILD APPLIED AI SYSTEMS ACROSS SPEECH, VISION AND LANGUAGE — AND SHIP THEM AS REAL PRODUCTS.
@@ -1462,7 +1483,7 @@
 
   <!-- FlexCarousel Initialization (React Bits Component Engine) -->
   <script type="module">
-    import { initFlexCarousel, DEFAULT_ITEMS } from './flex-carousel.js';
+    import { initFlexCarousel, DEFAULT_ITEMS } from './flex-carousel.js?v=20261024';
 
     function startCarousel() {
       const container = document.getElementById('flex-carousel-container');
@@ -1470,6 +1491,7 @@
         window.flexCarouselInstance = initFlexCarousel(container, {
           items: DEFAULT_ITEMS,
           preset: 'liquid',
+          captureWheel: false,
           intro: 'rise',
           cardHeight: 0.5,
           gap: 12,
@@ -1494,7 +1516,7 @@
 
   <!-- WorksWheel 3D Drum Reel Initialization -->
   <script type="module">
-    import { initWorksWheel, DEFAULT_WORKS } from './works-wheel.js';
+    import { initWorksWheel, DEFAULT_WORKS } from './works-wheel.js?v=20261024';
 
     function startWorksWheel() {
       const container = document.getElementById('works-wheel-container');

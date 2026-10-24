@@ -15,7 +15,7 @@ const TITLE = 0.115; // ring label and front-card title
 const INDEX = 0.038; // the index down the right-hand side
 const CULL = 1.6;
 
-const WHEEL_UNITS = 900;
+const WHEEL_UNITS = 250;
 const DRAG_UNITS = 420;
 const SETTLE = 140;
 const EASE = 0.12;
@@ -319,6 +319,7 @@ export function initWorksWheel(container, options = {}) {
 
   // Wheel interaction
   let settlingTimer = null;
+  let wheelDir = 0;
   const onWheel = (event) => {
     const delta = event.deltaY;
     const next = target + delta / WHEEL_UNITS;
@@ -326,10 +327,16 @@ export function initWorksWheel(container, options = {}) {
     if (next > 0 && next < last + 1) {
       event.preventDefault();
     }
+    if (delta !== 0) wheelDir = Math.sign(delta);
     to(next);
     clearTimeout(settlingTimer);
     settlingTimer = setTimeout(() => {
-      to(Math.round(target));
+      const lo = Math.floor(target);
+      const hi = Math.ceil(target);
+      let dest = Math.round(target);
+      if (wheelDir > 0 && target - lo > 0.3) dest = hi;
+      else if (wheelDir < 0 && hi - target > 0.3) dest = lo;
+      to(dest);
     }, SETTLE);
   };
   stageEl.addEventListener("wheel", onWheel, { passive: false });
