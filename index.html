@@ -377,6 +377,17 @@
       .hero-anim, .hero-pic-anim { animation: none; }
     }
 
+    /* Custom cursor — monochrome, inverts over light/dark via difference blend (enabled by JS, fine pointers only) */
+    #cc-dot, #cc-ring { position: fixed; top: 0; left: 0; pointer-events: none; z-index: 9999; border-radius: 9999px; }
+    #cc-dot { width: 6px; height: 6px; background: #fff; mix-blend-mode: difference; }
+    #cc-ring { width: 38px; height: 38px; border: 1.5px solid #fff; mix-blend-mode: difference; display: flex; align-items: center; justify-content: center; transition: width 0.3s ease, height 0.3s ease, background-color 0.3s ease, opacity 0.25s ease; }
+    #cc-label { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 9px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #000; opacity: 0; transition: opacity 0.2s ease; }
+    #cc-ring.cc-active { width: 58px; height: 58px; }
+    #cc-ring.cc-labeled { width: 76px; height: 76px; background: #fff; mix-blend-mode: normal; border-color: transparent; }
+    #cc-ring.cc-labeled #cc-label { opacity: 1; }
+    #cc-dot.cc-hidden, #cc-ring.cc-hidden { opacity: 0; }
+    html.cc-on, html.cc-on * { cursor: none !important; }
+
     /* Accordion transition styles */
     .accordion-content {
       max-height: 0;
@@ -1548,5 +1559,47 @@
   </script>
   <script type="module" src="./scroll-expand-media.js"></script>
   <script type="module" src="./experience-section.js"></script>
+
+  <!-- Custom cursor (desktop fine pointers only) -->
+  <script>
+    (function () {
+      if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+      var dot = document.createElement('div'); dot.id = 'cc-dot';
+      var ring = document.createElement('div'); ring.id = 'cc-ring';
+      var label = document.createElement('span'); label.id = 'cc-label';
+      ring.appendChild(label);
+      document.body.appendChild(dot);
+      document.body.appendChild(ring);
+      document.documentElement.classList.add('cc-on');
+      var mx = innerWidth / 2, my = innerHeight / 2, rx = mx, ry = my;
+      var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      window.addEventListener('mousemove', function (e) { mx = e.clientX; my = e.clientY; });
+      (function loop() {
+        var f = reduced ? 1 : 0.16;
+        rx += (mx - rx) * f;
+        ry += (my - ry) * f;
+        dot.style.transform = 'translate(' + mx + 'px,' + my + 'px) translate(-50%,-50%)';
+        ring.style.transform = 'translate(' + rx + 'px,' + ry + 'px) translate(-50%,-50%)';
+        requestAnimationFrame(loop);
+      })();
+      document.addEventListener('pointerover', function (e) {
+        var t = e.target;
+        if (!t.closest) return;
+        var field = t.closest('input, textarea, select, [contenteditable="true"]');
+        dot.classList.toggle('cc-hidden', !!field);
+        ring.classList.toggle('cc-hidden', !!field);
+        document.documentElement.classList.toggle('cc-on', !field);
+        if (field) return;
+        if (t.closest('#flex-carousel-container, #works-wheel-container')) {
+          label.textContent = 'Drag';
+          ring.classList.add('cc-labeled');
+          ring.classList.remove('cc-active');
+          return;
+        }
+        ring.classList.remove('cc-labeled');
+        ring.classList.toggle('cc-active', !!t.closest('a, button, [role="button"]'));
+      });
+    })();
+  </script>
 </body>
 </html>
