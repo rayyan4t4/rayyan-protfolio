@@ -1,0 +1,35 @@
+# Rayyan Khan — AI & Machine Learning Engineer
+
+> Portfolio of Rayyan Khan, an AI and machine learning engineer based in Mardan, Khyber Pakhtunkhwa, Pakistan. He is the AI/ML Team Lead at ITSimplera Solutions and a final-year BS Computer Science student at the University of Engineering and Technology (UET) Mardan, graduating in 2027. He builds applied deep learning systems — RAG systems, LLM applications and computer vision — and ships them as real, live products.
+
+## Pages
+
+- [Home](https://rayyankhan.online/): Overview, featured projects, services and FAQ about Rayyan Khan.
+- [About](https://rayyankhan.online/about): Background, skills, education (BS Computer Science, UET Mardan) and certifications.
+- [Projects](https://rayyankhan.online/projects): All AI/ML projects with live demos, source code and measured results.
+- [Experience](https://rayyankhan.online/experience): AI/ML Team Lead at ITSimplera Solutions; Machine Learning Intern at CodeClub Peshawar (2025).
+
+## Projects
+
+- [Ask the Constitution](https://rayyankhan.online/projects/ask-the-constitution): A retrieval-augmented generation (RAG) app that answers questions about the Constitution of Pakistan with cited sources. FastAPI backend, FAISS + MiniLM retrieval, React frontend. Live demo: https://ask-constitution-web.vercel.app
+- [CottonDoctor-PK](https://rayyankhan.online/projects/cottondoctor-pk): An EfficientNet-B0 image classifier that detects cotton leaf diseases, 89.72% held-out accuracy. Live demo: https://cottondoctor-pk.streamlit.app
+- [Lahore Smog Forecast](https://rayyankhan.online/projects/lahore-smog-forecast): Gradient-boosting air-quality (AQI) forecasting for Lahore that beats the seasonal-naive baseline by 27% on MAE. Live demo: https://lahore-smog-forecast.streamlit.app
+- [Portfolio RAG Chatbot](https://rayyankhan.online/projects/portfolio-rag-chatbot): A RAG chatbot that answers questions about Rayyan Khan's work using MiniLM embeddings, FAISS search and an LLM served via OpenRouter. Live demo: https://portfolio-rag-chat-5k6zrbaixyywuxah4nykew.streamlit.app
+- [RozgarMatch](https://rayyankhan.online/projects/rozgarmatch): A FastAPI service that matches fresh graduates to live job listings with transparent skill-fit scores. Live app: https://rozgarmatch.onrender.com
+
+## Key facts
+
+- Role: AI/ML Team Lead at ITSimplera Solutions; previously ML Intern at CodeClub Peshawar.
+- Education: BS Computer Science, University of Engineering and Technology (UET) Mardan, graduating 2027.
+- Specialties: machine learning, deep learning, computer vision, natural language processing, large language models, retrieval-augmented generation, speech enhancement, PyTorch, FastAPI.
+- Location: Mardan, Khyber Pakhtunkhwa, Pakistan.
+- Contact: contact@rayyankhan.online
+
+## Profiles
+
+- GitHub: https://github.com/rayyan4t4
+- LinkedIn: https://www.linkedin.com/in/rayyanstein
+- Instagram: https://www.instagram.com/rayyankhan.ai
+- YouTube: https://www.youtube.com/@Rayyan4t4
+- DEV: https://dev.to/rayyan4t4
+- Google Developer Profile: https://g.dev/rayyankhanai

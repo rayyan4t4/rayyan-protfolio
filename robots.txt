@@ -1,3 +1,41 @@
+# rayyankhan.online — all search and AI crawlers welcome.
+# Search citability crawlers (ChatGPT Search, Claude search, Perplexity)
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+# AI browsing / user-triggered fetchers
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+# AI training crawlers (allowed — open portfolio content)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Everyone else
 User-agent: *
 Allow: /
 
