@@ -2,6 +2,8 @@
 
 > Portfolio of Rayyan Khan, an AI and machine learning engineer based in Mardan, Khyber Pakhtunkhwa, Pakistan. He is the AI/ML Team Lead at ITSimplera Solutions and a final-year BS Computer Science student at the University of Engineering and Technology (UET) Mardan, graduating in 2027. He builds applied deep learning systems — RAG systems, LLM applications and computer vision — and ships them as real, live products.
 
+People usually find this site by searching: Rayyan Khan portfolio, Rayyan AI engineer, Rayyan ML engineer, Rayyan Khan GitHub, Rayyan Khan LinkedIn, AI engineer portfolio Pakistan, ML engineer portfolio.
+
 ## Pages
 
 - [Home](https://rayyankhan.online/): Overview, featured projects, services and FAQ about Rayyan Khan.
