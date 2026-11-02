@@ -4,7 +4,7 @@ Personal portfolio site for Rayyan Khan, Machine Learning Engineer.
 
 - **Stack:** hand-built static site — HTML, CSS, vanilla JS, Three.js (CDN). No build step, no framework.
 - **Design:** warm paper light theme, editorial typography (Space Grotesk / Instrument Serif / JetBrains Mono), real-time 3D hero, smooth scrolling via Lenis.
-- **Deploy:** any static host. Currently live at https://rayyan-protfolio.vercel.app via Vercel (auto-deploys from `main`).
+- **Deploy:** any static host. Currently live at https://rayyankhan.online/
 
 ## Structure
 
