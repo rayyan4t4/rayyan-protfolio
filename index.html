@@ -360,6 +360,22 @@
       -webkit-mask-image: linear-gradient(to bottom, black 65%, transparent 100%);
     }
 
+    /* Batman layer: revealed only inside a small radius around the cursor */
+    .hero-batman {
+      opacity: 0;
+      transition: opacity 0.45s ease;
+      -webkit-mask-image: radial-gradient(circle 95px at var(--mx, -300px) var(--my, -300px), black 62%, transparent 100%);
+      mask-image: radial-gradient(circle 95px at var(--mx, -300px) var(--my, -300px), black 62%, transparent 100%);
+      -webkit-mask-repeat: no-repeat;
+      mask-repeat: no-repeat;
+    }
+    #hero-reveal:hover .hero-batman, #hero-reveal.reveal-on .hero-batman {
+      opacity: 1;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .hero-batman { transition: none; }
+    }
+
     /* Hero entrance: text rises, portrait scrolls up into place on load/reload */
     @keyframes hero-rise {
       from { opacity: 0; transform: translateY(54px); }
@@ -523,10 +539,12 @@
 
       <!-- Center Column: Stylized Black and White Headshot (in front of text) -->
       <div class="md:col-span-6 flex justify-center order-1 md:order-2 relative z-10 -mt-16 md:-mt-36 hero-pic-anim" style="--hd:.3s">
-        <div class="relative w-[320px] h-[400px] md:w-[480px] md:h-[580px] flex items-end justify-center hero-portrait-mask">
+        <div id="hero-reveal" class="relative w-[320px] h-[400px] md:w-[480px] md:h-[580px] flex items-end justify-center hero-portrait-mask">
           <img src="assets/hero_portrait.webp" width="1045" height="1479" fetchpriority="high" decoding="async"
                alt="Portrait of Rayyan Khan, AI and Machine Learning Engineer from Mardan, Pakistan"
                class="w-full h-full object-contain object-bottom pointer-events-none select-none transition-transform duration-700 hover:scale-[1.02]">
+          <img src="assets/hero_batman.webp" width="1045" height="1479" decoding="async" alt="" aria-hidden="true"
+               class="hero-batman absolute inset-0 w-full h-full object-contain object-bottom pointer-events-none select-none">
         </div>
       </div>
 
@@ -1605,5 +1623,33 @@
       });
     })();
   </script>
+<script>
+(function () {
+  var box = document.getElementById('hero-reveal');
+  if (!box) return;
+  var tx = -300, ty = -300, cx = -300, cy = -300, raf = null;
+  function loop() {
+    cx += (tx - cx) * 0.22;
+    cy += (ty - cy) * 0.22;
+    box.style.setProperty('--mx', cx.toFixed(1) + 'px');
+    box.style.setProperty('--my', cy.toFixed(1) + 'px');
+    if (Math.abs(tx - cx) > 0.4 || Math.abs(ty - cy) > 0.4) { raf = requestAnimationFrame(loop); }
+    else { raf = null; }
+  }
+  function kick() { if (!raf) raf = requestAnimationFrame(loop); }
+  function move(e) {
+    var r = box.getBoundingClientRect();
+    var p = (e.touches && e.touches[0]) || e;
+    tx = p.clientX - r.left;
+    ty = p.clientY - r.top;
+    kick();
+  }
+  box.addEventListener('mousemove', move);
+  box.addEventListener('mouseenter', move);
+  box.addEventListener('touchstart', function (e) { box.classList.add('reveal-on'); move(e); }, { passive: true });
+  box.addEventListener('touchmove', move, { passive: true });
+  box.addEventListener('touchend', function () { box.classList.remove('reveal-on'); });
+})();
+</script>
 </body>
 </html>
